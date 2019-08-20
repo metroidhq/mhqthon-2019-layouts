@@ -98,7 +98,8 @@
 #container #chat,
 #container #alerts,
 #container #tracker-one,
-#container #tracker-two {
+#container #tracker-two,
+#container #tracker-three {
   position: absolute;
 }
 
@@ -109,6 +110,7 @@
 #container #chat,
 #container #tracker-one,
 #container #tracker-two,
+#container #tracker-three,
 #container .host-box {
   background-color: rgba(0, 0, 0, 0.7);
 }
@@ -126,7 +128,8 @@
   z-index: -1;
 }
 
-#container #info-boxes {
+#container #info-boxes,
+#container .tracker-info {
   position: absolute;
   height: 0px;
   overflow-y: hidden;
@@ -149,7 +152,22 @@
   content: '';
 }
 
-#container #info-boxes:not(.spread)::after {
+#container .tracker-info::before {
+  position: absolute;
+  top: calc(var(--divider-height) * -1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  height: calc(var(--divider-height) + var(--info-box-height));
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#container #info-boxes:not(.spread)::after,
+#container .tracker-info::after {
   position: absolute;
   top: calc(var(--divider-height) * -1);
   height: var(--divider-height);
@@ -213,3 +231,8 @@
 
 /* #next-game::after { content: 'Metroid Prime: Federation Force'; }
 #host-one::after { content: 'Elias Thompson'; } */
+#host-one::after { content: 'Elias Thompson'; }
+#tracker-info-one::before { content: 'Elias'; }
+#tracker-info-two::before { content: 'Gendreavus'; }
+#tracker-info-three::before { content: 'Saturnaut'; }
+/* #tracker-info-one::after { content: 'Elias'; } */
